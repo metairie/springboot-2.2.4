@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>net.metairie</groupId>
+    <artifactId>springboot-2.2.4</artifactId>
+    <version>1</version>
+    <modules>
+        <module>sessions-service</module>
+        <module>speakers-service</module>
+        <module>frontend</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <name>Springboot 2.2.4 tester</name>
+    <description>Implement new feature in Spring boot 2.2.4</description>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.4.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <properties>
+        <!-- project -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- dependencies -->
+        <lombok.version>1.18.12</lombok.version>
+        <projectreactor.version>2.0.8.RELEASE</projectreactor.version>
+        <!-- plugin -->
+    </properties>
+
+    <dependencies>
+
+        <!-- springboot starter -->
+        <!-- web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Project Lombok is a java library that automatically plugs into your editor and build tools, spicing up your java.
+        Never write another getter or equals method again, with one annotation your class has a fully featured builder
+        Automate your logging variables, and much more -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!--  Reactor is a fourth-generation reactive library, based on the Reactive Streams specification,
+        for building non-blocking applications on the JVM -->
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-bus</artifactId>
+            <version>${projectreactor.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>springboot</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <!-- add goal to generate build-info, useful for SpringBootAdmin -->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build-info</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
